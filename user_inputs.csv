@@ -1,0 +1,2 @@
+age,sex,cp,trestbps,chol,fbs,restecg,thalch,exang,oldpeak,slope,ca,thal,prediction,prediction_label,timestamp
+50,1,0,120,200,1,0,150,1,1.0,0,0,0,1,Heart Disease – Low Risk,2025-12-15 17:15:05.613288
