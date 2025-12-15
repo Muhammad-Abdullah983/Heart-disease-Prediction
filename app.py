@@ -282,7 +282,33 @@ st.markdown("""
         box-shadow: 0 2px 12px rgba(102, 126, 234, 0.4);
     }
     
- 
+    /* Enhanced slider visibility for min/max values */
+    [data-testid="stSlider"] {
+        padding: 20px 0;
+    }
+    
+    [data-testid="stSlider"] label {
+        font-weight: 700 !important;
+        font-size: 1.1em !important;
+        color: #ffffff !important;
+    }
+    
+    /* Style slider value containers */
+    [data-testid="stSlider"] > div {
+        color: #ffffff !important;
+    }
+    
+    /* Style the min/max text below slider */
+    [data-testid="stSlider"] span {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        font-size: 1.05em !important;
+       
+        padding: 6px 12px !important;
+        border-radius: 8px !important;
+        display: inline-block !important;
+        margin: 8px 4px 0 4px !important;
+    }
 
 </style>
 
@@ -530,8 +556,12 @@ else:
             """, unsafe_allow_html=True)
         
         # Animated progress bar
-        st.markdown('<h3 style="color: white; text-align: center; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Risk Meter</h3>', unsafe_allow_html=True)
-        st.progress(heart_prob)
+        st.markdown('<h3 style="text-align: center; text-shadow: 0 2px 10px rgba(0,0,0,0.5); ">Risk Meter</h3>', unsafe_allow_html=True)
+        st.markdown(f"""
+        <div style="width: 100%; height: 20px; background-color: rgba(0, 91, 120, 0.53); border-radius: 15px; overflow: hidden; margin: 20px 0; border: 1px solid rgba(255,255,255,0.2);">
+            <div style="width: {heart_prob*100}%; height: 100%; background-color: {risk_color}; border-radius: 15px; transition: width 0.8s ease-out; box-shadow: 0 0 20px rgba({risk_color}, 0.5);"></div>
+        </div>
+        """, unsafe_allow_html=True)
         
         # Recommendation with animation
         if heart_prob < 0.3:
